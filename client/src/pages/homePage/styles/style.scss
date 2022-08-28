@@ -1,0 +1,21 @@
+.search_bar{
+    margin: 10px auto;
+    position: relative;
+    width: 60vw;
+    height: 7vw;
+
+    input{
+        width: inherit;
+        height: inherit;
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid gray;
+    }
+}
+
+.search_icon{
+    position: absolute;
+    right: 2%;
+    top: 0;
+    height: inherit;
+}
