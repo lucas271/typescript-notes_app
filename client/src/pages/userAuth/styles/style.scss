@@ -1,0 +1,111 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins';
+@use '../../../styles/animations' as *;
+
+.auth_container{
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-color2;
+    
+    h2{
+        font-size: $text-size-bigger;
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+
+        span{
+            transition: 0.4s;
+            @include mixins.text-color-w-hover(darken($text-color2, 25%));
+
+        }
+    }
+}
+
+
+
+.auth_form_container_left{
+    animation: 1s ease-in-out come_from_left;
+}
+
+.auth_form_container_right{
+    animation: 1s ease-in-out come_from_right;
+}
+
+.auth_form_container{
+    position: relative;
+    height: 95%;
+    width: 85%;
+    background-color: $secundary-color;
+    border-radius: 7px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .auth_form{
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+
+        div{
+            width: 70%;
+        }
+    }
+
+    label{
+        font-size: $text-size2;
+    }
+
+    .input_field{
+        margin-top: 7px;
+        width: 100%;
+        height: 25px;
+        border-radius: 10px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        font-size: $text-size3;
+    
+        &:focus{
+            outline: 3px solid $primary-color;
+        }
+    
+    }
+
+    .form_btn{
+        background-color: transparent;
+        color: $text-color2;
+        border: 1px solid $primary-color;
+        width: 35%;
+        padding: 10px;
+        border-radius: 5px;
+        transition: 0.6s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $primary-color;
+            color: $text-color;
+        }
+    }
+
+    .form_change{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 880px) {
+    .auth_form_container{
+        width: 65%;
+    }
+}
