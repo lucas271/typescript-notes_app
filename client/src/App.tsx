@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+
+import RoutesComponent from './Routes';
+import './styles/global.scss'
 
 function App() {
   return (
     <div className="App">
-
+      <RoutesComponent/>
     </div>
   );
 }
