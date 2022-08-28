@@ -1,0 +1,31 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins';
+
+.navbar_container{
+    position: relative;
+
+    width: 100vw;
+    height: 10vh;
+}
+
+.navbar{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+    background-color: $primary-color;
+
+    h1{
+        font-size: $text-size2;
+        @include mixins.text-color-w-hover($text-color)
+    }
+
+    .icon{
+        font-size: $text-size2;
+        @include mixins.text-color-w-hover($text-color)
+    }
+}
