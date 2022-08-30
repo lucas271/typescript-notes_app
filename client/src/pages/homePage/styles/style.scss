@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as *;
+
 .search_bar{
     margin: 10px auto;
     position: relative;
@@ -9,7 +11,10 @@
         height: inherit;
         border-radius: 5px;
         padding: 5px;
-        border: 1px solid gray;
+        border: 1px solid $secundary-color;
+        &:focus{
+            outline: 2px solid $primary-color;
+        }
     }
 }
 
@@ -18,4 +23,33 @@
     right: 2%;
     top: 0;
     height: inherit;
+}
+
+.notes_container{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter_by_type{
+    display: flex;
+    justify-content: center;
+    color: $secundary-color;
+}
+
+@media only screen and (min-width: 400px) {
+    .notes_container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .search_bar{
+        width: 45vw;
+        height: 4vw;
+    }
 }
