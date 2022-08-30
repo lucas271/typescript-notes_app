@@ -4,6 +4,7 @@ import Navbar from './navbar/Navbar'
 import UserAuth from '../pages/userAuth/UserAuth'
 import {AnimatePresence} from 'framer-motion'
 import HomePage from '../pages/homePage/HomePage'
+import Page404 from '../pages/page404/page404'
 
 const RoutesWithNavbar: React.FC = () => {
 
@@ -12,6 +13,7 @@ const RoutesWithNavbar: React.FC = () => {
       <Navbar/>
       <Routes>
           <Route path='/' element={<HomePage/>}/>
+          <Route path='*' element={<Page404/>}/>
       </Routes>
   </>
 }
