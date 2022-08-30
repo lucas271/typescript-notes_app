@@ -31,6 +31,10 @@
     
         span{
             cursor: pointer;
+            &:hover{
+                transition: 0.4s;
+                color: darken($text-color2, 20%);
+            }
         }
     }
 }
