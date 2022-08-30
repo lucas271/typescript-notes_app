@@ -56,13 +56,6 @@ const Notes: Note[]= [
         done: false,
         id: 'odko654asdaczskdoa'
     },
-    {
-        title: 'matar aviões ',
-        text: 'matar aviões as 2 da manha com uma faca de caça',
-        date: new Date(),
-        done: true,
-        id: 'odkos41da21askdoa'
-    }
 ]
 
 const HomePage: React.FC = () => {

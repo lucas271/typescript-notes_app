@@ -43,7 +43,9 @@
     .notes_container{
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+
+        /* quick fix*/
+        margin-left: 2.2%;
     }
 }
 
