@@ -1,77 +1,91 @@
-@use '../../../styles/variables' as *;
+@use "../../../styles/variables" as *;
 
-
-.note{
-    position: relative;
-    padding: 10px;
-    width: 75vw;
-    height: 80vw;
-    text-align: center;
-    border-radius: 10px;
-    background-color: $secundary-color;
+.note {
+  position: relative;
+  padding: 10px;
+  width: 75vw;
+  height: 80vw;
+  text-align: center;
+  border-radius: 10px;
+  background-color: $secundary-color;
+  overflow: auto;
 }
 
-.note_header{
-    color: $text-color2;
+.note_header {
+  color: $text-color2;
 
-    .date{
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: $text-size6;
-    }
+  .date {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: $text-size6;
+  }
 
-    .note_icons{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: $text-size5;
-        display: flex;
-        gap: 5px;
-    
-        span{
-            cursor: pointer;
-            &:hover{
-                transition: 0.4s;
-                color: darken($text-color2, 20%);
-            }
-        }
-    }
-}
-
-.note_details{
-    margin-top: 25px;
+  .note_icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: $text-size5;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: $text-color2;
+    gap: 5px;
 
-    h2{
-        font-size: $text-size1;
+    span {
+      cursor: pointer;
+      &:hover {
+        transition: 0.4s;
+        color: darken($text-color2, 20%);
+      }
     }
-    p{
-        font-size: $text-size3;
-    }
+  }
 }
 
+.note_details {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: $text-color2;
+
+  h2 {
+    font-size: $text-size1;
+  }
+  p {
+    font-size: $text-size3;
+  }
+}
+
+.footer{
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  color: $text-color2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  input{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+  }
+}
 
 @media only screen and (min-width: 400px) {
-    .note{
-        width: 45vw;
-        height: 55vw;
-    }
+  .note {
+    width: 45vw;
+    height: 55vw;
+  }
 }
-
 @media only screen and (min-width: 650px) {
-    .note{
-        width: 30vw;
-        height: 40vw;
-    }
+  .note {
+    width: 30vw;
+    height: 40vw;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    .note{
-        width: 30vw;
-        height: 30vw;
-    }
+  .note {
+    width: 30vw;
+    height: 30vw;
+  }
 }
