@@ -1,0 +1,66 @@
+@use "../../../styles/variables" as *;
+
+.new_note{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .back_btn{
+    position: absolute;
+    z-index: 2;
+    top: 3%;
+    left: 3%;
+    color: $text-color2;
+    cursor: pointer;
+
+
+    &:hover{
+      transition: 0.4s;
+      color: darken($text-color2, 20%);
+    }
+  }
+
+  button{
+    width: 80%;
+    height: 70%;
+    font-size: $text_size1;
+    cursor: pointer;
+    background-color: $primary-color;
+    color: $text-color;
+    border: none;
+
+    &:hover{
+      transition: 0.4s;
+      background-color: lighten($primary-color, 20%);
+      color: lighten($text-color, 20%);
+    }
+  }
+
+  .new_note_form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: $text-color2;
+
+    input{
+      width: 80%;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .send{
+      width: 80%;
+      height: 30px;
+      font-size: $text_size4;
+      border-radius: 5px;
+    }
+  }
+}
