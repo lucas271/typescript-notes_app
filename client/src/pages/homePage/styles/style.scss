@@ -1,57 +1,81 @@
-@use '../../../styles/variables' as *;
+@use "../../../styles/variables" as *;
+@use "../../../styles/animations" as *;
 
-.search_bar{
-    margin: 10px auto;
-    position: relative;
-    width: 60vw;
-    height: 7vw;
 
-    input{
-        width: inherit;
-        height: inherit;
-        border-radius: 5px;
-        padding: 5px;
-        border: 1px solid $secundary-color;
-        &:focus{
-            outline: 2px solid $primary-color;
-        }
-    }
+.error_container{
+  z-index: 4;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error{
+  z-index: 10;
+  position: fixed;
+  background-color: rgba(202, 15, 15);
+  color: $text-color2;
+  width: 100px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 3px;
+  text-align: center;
+
+  animation: 1s ease-in-out come_from_top;
 }
 
-.search_icon{
-    position: absolute;
-    right: 2%;
-    top: 0;
+.search_bar {
+  margin: 10px auto;
+  position: relative;
+  width: 60vw;
+  height: 7vw;
+
+  input {
+    width: inherit;
     height: inherit;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid $secundary-color;
+    &:focus {
+      outline: 2px solid $primary-color;
+    }
+  }
 }
 
-.notes_container{
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.search_icon {
+  position: absolute;
+  right: 2%;
+  top: 0;
+  height: inherit;
 }
 
-.filter_by_type{
-    display: flex;
-    justify-content: center;
-    color: $secundary-color;
+.notes_container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter_by_type {
+  display: flex;
+  justify-content: center;
+  color: $secundary-color;
 }
 
 @media only screen and (min-width: 400px) {
-    .notes_container{
-        flex-direction: row;
-        flex-wrap: wrap;
+  .notes_container {
+    flex-direction: row;
+    flex-wrap: wrap;
 
-        /* quick fix*/
-        margin-left: 2.2%;
-    }
+    /* quick fix*/
+    margin-left: 2.2%;
+  }
 }
 
 @media only screen and (min-width: 750px) {
-    .search_bar{
-        width: 45vw;
-        height: 4vw;
-    }
+  .search_bar {
+    width: 45vw;
+    height: 4vw;
+  }
 }
