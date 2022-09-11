@@ -1,24 +1,27 @@
-@use '../../../styles/variables' as *;
+@use "../../../styles/variables" as *;
 
-.page404_container{
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.page404_container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    .icon, h2, p, .go_home{
-        font-size: $text_size_bigger;
-        color: $secundary-color;
+  .icon,
+  h2,
+  p,
+  .go_home {
+    font-size: $text_size_bigger;
+    color: $secundary-color;
+  }
+  .go_home {
+    margin-top: 10px;
+    text-decoration: underline;
+
+    &:hover {
+      transition: 0.4s;
+      color: darken($secundary_color, 15%);
     }
-    .go_home{
-        margin-top: 10px;
-        text-decoration: underline;
-        
-        &:hover{
-            transition: 0.4s;
-            color: darken($secundary_color, 15%);
-        }
-    }
+  }
 }
