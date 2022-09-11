@@ -1,31 +1,32 @@
-@use '../../../styles/variables' as *;
-@use '../../../styles/mixins';
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins";
 
-.navbar_container{
-    position: relative;
+.navbar_container {
+  position: relative;
 
-    width: 100%;
-    height: 10vh;
+  width: 100%;
+  height: 10vh;
 }
 
-.navbar{
-    position: absolute;
-    width: inherit;
-    height: inherit;
+.navbar {
+  z-index: 3;
+  position: fixed;
+  width: inherit;
+  height: inherit;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: space-around;
-    background-color: $primary-color;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $primary-color;
 
-    h1{
-        font-size: $text-size2;
-        @include mixins.text-color-w-hover($text-color)
-    }
+  h1 {
+    font-size: $text-size2;
+    @include mixins.text-color-w-hover($text-color);
+  }
 
-    .icon{
-        font-size: $text-size2;
-        @include mixins.text-color-w-hover($text-color)
-    }
+  .icon {
+    font-size: $text-size2;
+    @include mixins.text-color-w-hover($text-color);
+  }
 }
