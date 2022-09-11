@@ -1,10 +1,9 @@
-@mixin text-color-w-hover($color){
-    cursor: pointer;
-    transition: 0.4s;
-    color: $color;
+@mixin text-color-w-hover($color) {
+  cursor: pointer;
+  transition: 0.4s;
+  color: $color;
 
-
-     &:hover{
-        color: lighten($color, 10%);
-    }
+  &:hover {
+    color: lighten($color, 10%);
+  }
 }
