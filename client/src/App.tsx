@@ -1,14 +1,18 @@
-import React from 'react';
+import React from 'react'
+import { Provider } from 'react-redux'
+import store from './services/store'
 
-import RoutesComponent from './Routes';
+import RoutesComponent from './Routes'
 import './styles/global.scss'
 
-function App() {
+function App () {
   return (
     <div className="App">
-      <RoutesComponent/>
+      <Provider store={store}>
+        <RoutesComponent />
+      </Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
