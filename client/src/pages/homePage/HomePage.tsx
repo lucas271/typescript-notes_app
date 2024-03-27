@@ -47,12 +47,8 @@ const HomePage = () => {
   }
 
   const notesFilter = (notes: Note[]): Note[] => {
-    return notes
-      .filter((note) => note.done === done)
-      .filter(
-        (note) =>
-          note.title.includes(searchNote) || note.text.includes(searchNote)
-      )
+    console.log(notes)
+    return notes.filter((note) => note.done === done).filter((note) =>note.title.includes(searchNote) || note.text.includes(searchNote))
   }
 
   return (
@@ -90,7 +86,7 @@ const HomePage = () => {
               : <NoteForm handleForm={handleForm} isForm={isForm} setIsForm={setIsForm}/>
             }
           </div>
-          {notesFilter(Notes).map((note, index) => {
+          {Notes && notesFilter(Notes).map((note, index) => {
             return <SingleNote note={note} key={note._id || index} setShowError={setShowError}/>
           })}
         </main>
