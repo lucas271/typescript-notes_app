@@ -18,12 +18,11 @@ const Navbar = () => {
           <Typography variant='h1'>
             <Link to="/">Notes App</Link>
           </Typography>
-          {user ? 
-            <Link to="/">
+          {user
+            ? <Link to="/">
               <ExitToApp className="icon" onClick={() => handleLogout()}/>
             </Link>
-            : 
-            <Link to="/userAuth" >
+            : <Link to="/userAuth" >
                 <AccountCircleOutlined className="icon"/>
             </Link>
           }
@@ -32,5 +31,4 @@ const Navbar = () => {
     </>
   )
 }
-
 export default Navbar

@@ -30,8 +30,6 @@ const HomePage = () => {
   const user = JSON.parse(String(localStorage.getItem('user')))
   const Notes = user?.notes
 
-
-
   const handleForm = (e: FormEvent<HTMLFormElement>, title: string, text: string, setTitle: React.Dispatch<React.SetStateAction<string>>, setText:React.Dispatch<React.SetStateAction<string>>): void => {
     e.preventDefault()
 
