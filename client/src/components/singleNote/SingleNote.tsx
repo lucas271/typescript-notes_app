@@ -1,13 +1,13 @@
 import { Note } from '../../models/note'
 import './styles/style.scss'
-import { AiOutlineEdit } from 'react-icons/ai'
 import React, { useState, FormEvent } from 'react'
 
-import { BsTrash } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppThunkDispatch, RootState } from '../../services/store'
 import { deleteNoteThunk, editNoteThunk, handleDone, NotesType } from '../../services/features/notes/notesSlice'
 import NoteForm from '../noteForm/NoteForm'
+import { Card, Checkbox, CircularProgress } from '@mui/material'
+import { Delete, Edit } from '@mui/icons-material'
 
 interface Props {
   note: Note;
@@ -58,20 +58,18 @@ const SingleNote: React.FC<Props> = ({ note, setShowError }) => {
   }
   return (
     <>
-      <div className={`note ${isForm && 'new_note'}`}>
+      <Card className={`note ${isForm && 'new_note'}`}>
         {noteSelector.loading && noteSelector.notes[0]?._id === note?._id
-          ? <h2>
-        loading
-        </h2>
+          ? <CircularProgress />
           : !isForm
               ? <>
           <header className="note_header">
           <div className="note_icons">
             <span onClick={() => setIsForm(!isForm)}>
-              <AiOutlineEdit />
+              <Edit />
             </span>
             <span onClick={handleDelete}>
-              <BsTrash />
+              <Delete />
             </span>
           </div>
           <span className="date">
@@ -85,10 +83,10 @@ const SingleNote: React.FC<Props> = ({ note, setShowError }) => {
               : <NoteForm handleForm={handleForm} isForm={isForm} setIsForm={setIsForm}/>
           }
           <footer className='footer'>
-            <label>Done?</label>
-            <input type="checkbox" onChange={handleIsDoneChange} checked={note.done}/>
+            <label htmlFor='is_done'>Done?</label>
+            <Checkbox id='is_done' onChange={handleIsDoneChange} color={note.done ? 'success' : 'default'} checked={note.done}/>
           </footer>
-      </div>
+      </Card>
     </>
   )
 }

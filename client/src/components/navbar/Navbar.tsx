@@ -1,6 +1,7 @@
-import { BiLogOut, BiLogIn } from 'react-icons/bi'
 import './styles/style.scss'
 import { Link } from 'react-router-dom'
+import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AccountCircleOutlined, ExitToApp } from '@mui/icons-material'
 
 const Navbar = () => {
   const user = localStorage.getItem('user')
@@ -9,27 +10,25 @@ const Navbar = () => {
     localStorage.removeItem('user')
     location.reload()
   }
+
   return (
     <>
-      <header className="navbar_container">
-        <nav className="navbar">
-          <h1>
-            <Link to="/">Notes App</Link>{' '}
-          </h1>
-          {user
-            ? (
+      <AppBar className="navbar_container">
+        <Toolbar className='navbar'>
+          <Typography variant='h1'>
+            <Link to="/">Notes App</Link>
+          </Typography>
+          {user ? 
             <Link to="/">
-              <BiLogOut className="icon" onClick={() => handleLogout()}/>
+              <ExitToApp className="icon" onClick={() => handleLogout()}/>
             </Link>
-              )
-            : (
+            : 
             <Link to="/userAuth" >
-                <BiLogIn className="icon"/>
+                <AccountCircleOutlined className="icon"/>
             </Link>
-
-              )}
-        </nav>
-      </header>
+          }
+        </Toolbar>
+      </AppBar>
     </>
   )
 }

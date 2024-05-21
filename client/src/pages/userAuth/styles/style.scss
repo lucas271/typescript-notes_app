@@ -20,7 +20,10 @@
 
   p {
     text-align: center;
-
+    font-size: $text-size3;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
     span {
       transition: 0.4s;
       @include mixins.text-color-w-hover(darken($text-color2, 25%));
@@ -38,7 +41,7 @@
 
 .auth_form_container {
   position: relative;
-  height: 95%;
+  height: 75%;
   width: 85%;
   background-color: $secundary-color;
   border-radius: 7px;
@@ -48,7 +51,6 @@
   justify-content: space-evenly;
 
   .auth_form {
-    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +58,7 @@
     gap: 50px;
 
     div {
-      width: 70%;
+      width: 75%;
     }
   }
 
@@ -67,7 +69,7 @@
   .input_field {
     margin-top: 7px;
     width: 100%;
-    height: 25px;
+    height: 40px;
     border-radius: 10px;
     padding: 5px;
     outline: none;

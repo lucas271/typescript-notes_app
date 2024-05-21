@@ -17,7 +17,6 @@ const HomePage = () => {
   const [showError, setShowError] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log('a')
     setTimeout(() => {
       setShowError(false)
     }, 10000)
@@ -31,7 +30,7 @@ const HomePage = () => {
   const user = JSON.parse(String(localStorage.getItem('user')))
   const Notes = user?.notes
 
-  if (!user) location.replace('/userAuth')
+
 
   const handleForm = (e: FormEvent<HTMLFormElement>, title: string, text: string, setTitle: React.Dispatch<React.SetStateAction<string>>, setText:React.Dispatch<React.SetStateAction<string>>): void => {
     e.preventDefault()

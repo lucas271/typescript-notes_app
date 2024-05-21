@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Navbar from './navbar/Navbar'
 import UserAuth from '../pages/userAuth/UserAuth'
 import { AnimatePresence } from 'framer-motion'
@@ -7,11 +7,14 @@ import HomePage from '../pages/homePage/HomePage'
 import Page404 from '../pages/page404/page404'
 
 const RoutesWithNavbar: React.FC = () => {
+  const user = JSON.parse(String(localStorage.getItem('user')))
+  const location = useLocation()
+
   return (
     <>
-      <Navbar />
+      {!(location.pathname === '/' && !user) && <Navbar />}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={user ? <HomePage /> : <Navigate to='/userAuth'/>} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </>
