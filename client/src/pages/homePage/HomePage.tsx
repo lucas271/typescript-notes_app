@@ -45,7 +45,7 @@ const HomePage = () => {
 
   const notesFilter = (notes: Note[]): Note[] => {
     console.log(notes)
-    return notes.filter((note) => note.done === done).filter((note) =>note.title.includes(searchNote) || note.text.includes(searchNote))
+    return notes.filter((note) => note.done === done).filter((note) => note.title.includes(searchNote) || note.text.includes(searchNote))
   }
 
   return (
