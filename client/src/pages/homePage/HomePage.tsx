@@ -2,7 +2,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 import './styles/style.scss'
 import React, { FormEvent, useEffect, useState } from 'react'
-import { Note } from '../../models/note'
+import { Note } from '../../types/note'
 import SingleNote from '../../components/singleNote/SingleNote'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -80,11 +80,11 @@ const HomePage = () => {
                 +
               </button>
             </>
-              : <NoteForm handleForm={handleForm} isForm={isForm} setIsForm={setIsForm}/>
+              : <NoteForm handleForm={handleForm} isForm={isForm} setIsForm={setIsForm} isCreate={true}/>
             }
           </div>
           {Notes && notesFilter(Notes).map((note, index) => {
-            return <SingleNote note={note} key={note._id || index} setShowError={setShowError}/>
+            return <SingleNote note={note} key={note._id || index}setShowError={setShowError}/>
           })}
         </main>
       </div>

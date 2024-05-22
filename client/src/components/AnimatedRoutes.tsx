@@ -13,10 +13,13 @@ const RoutesWithNavbar: React.FC = () => {
   return (
     <>
       {!(location.pathname === '/' && !user) && <Navbar />}
-      <Routes>
-        <Route path="/" element={user ? <HomePage /> : <Navigate to='/userAuth'/>} />
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+      <main className='navbar_margin'>
+        <Routes>
+          <Route path="/" element={user ? <HomePage /> : <Navigate to='/userAuth'/>} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+      </main>
+
     </>
   )
 }

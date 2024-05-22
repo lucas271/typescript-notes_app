@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { Note } from '../../../models/note'
+import { Note } from '../../../types/note'
 
 const config = {
   headers: {

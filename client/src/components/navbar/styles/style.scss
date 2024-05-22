@@ -3,14 +3,14 @@
 
 .navbar_container {
   position: relative;
-
+  height: $navbar_size;
 }
 
 .navbar {
   z-index: 3;
   position: fixed;
   width: inherit;
-  height: inherit;
+  height: $navbar_size;
 
   display: flex;
 

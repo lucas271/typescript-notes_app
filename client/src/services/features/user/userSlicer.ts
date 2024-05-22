@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { User } from '../../../models/user'
+import { User } from '../../../types/user'
 import axios from 'axios'
 
 const config = {
@@ -52,7 +52,11 @@ const initialState: UserType = {
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    resetErrors (state) {
+      state.errors = []
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(createUserThunk.pending, (state) => {
       state.loading = true
@@ -84,3 +88,4 @@ export const userSlice = createSlice({
 })
 
 export default userSlice.reducer
+export const { resetErrors } = userSlice.actions

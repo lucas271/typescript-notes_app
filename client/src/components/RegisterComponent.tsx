@@ -1,7 +1,8 @@
 import React, { FormEvent, useState } from 'react'
-import { createUserThunk, UserType } from '../services/features/user/userSlicer'
+import { createUserThunk, resetErrors, UserType } from '../services/features/user/userSlicer'
 import { AppThunkDispatch } from '../services/store'
 import { useDispatch } from 'react-redux'
+import { CircularProgress } from '@mui/material'
 
 interface Props{
   user: UserType,
@@ -20,16 +21,17 @@ const RegisterComponent = ({ user, validation, handleIsLoginChange }: Props) => 
 
   const handleRegisterForm = (e: FormEvent<HTMLFormElement>):void => {
     const errorsArray = validation(username, password, repeatPassword)
+    setErrors([])
+    resetErrors()
     e.preventDefault()
     if (errorsArray.length > 0) return setErrors(errorsArray)
     dispatch(createUserThunk({ username, password, repeatPassword }))
   }
 
-  console.log(user)
   return <div className="auth_form_container auth_form_container_right">
 
     {(user?.errors.length > 0 || errors.length > 0) && <div className='errors_container'>
-      {user?.errors && user.errors.map(error => {
+      {user?.errors && ['dsoakdoa', 'dsoakdoas'].map(error => {
         return <span key={error} className='error'>{error}</span>
       })}
       {errors && errors.map(error => {
@@ -75,7 +77,7 @@ const RegisterComponent = ({ user, validation, handleIsLoginChange }: Props) => 
           Tem uma conta? <span onClick={handleIsLoginChange}>Logue!</span>
         </p>
     </>
-      : <h2>loading</h2>
+      : <div style={{ margin: 'auto' }}><CircularProgress size={110}/></div>
     }
   </div>
 }

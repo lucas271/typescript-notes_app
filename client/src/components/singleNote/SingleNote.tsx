@@ -1,4 +1,4 @@
-import { Note } from '../../models/note'
+import { Note } from '../../types/note'
 import './styles/style.scss'
 import React, { useState, FormEvent } from 'react'
 
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppThunkDispatch, RootState } from '../../services/store'
 import { deleteNoteThunk, editNoteThunk, handleDone, NotesType } from '../../services/features/notes/notesSlice'
 import NoteForm from '../noteForm/NoteForm'
-import { Card, Checkbox, CircularProgress } from '@mui/material'
+import { Button, Card, CardContent, CardHeader, Checkbox, CircularProgress } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
 
 interface Props {
@@ -59,33 +59,33 @@ const SingleNote: React.FC<Props> = ({ note, setShowError }) => {
   return (
     <>
       <Card className={`note ${isForm && 'new_note'}`}>
+
         {noteSelector.loading && noteSelector.notes[0]?._id === note?._id
           ? <CircularProgress />
           : !isForm
               ? <>
-          <header className="note_header">
-          <div className="note_icons">
-            <span onClick={() => setIsForm(!isForm)}>
-              <Edit />
-            </span>
-            <span onClick={handleDelete}>
-              <Delete />
-            </span>
-          </div>
-          <span className="date">
-            {createDate()}
-          </span>
-        </header>
-          <article className="note_details">
-            <h2>{note.title}</h2>
-            <p>{note.text}</p>
-          </article></>
+                <CardHeader action={
+                  <div className="note_header">
+                    <Button onClick={() => setIsForm(!isForm)}>
+                      <Edit />
+                    </Button>
+                    <Button onClick={handleDelete}>
+                      <Delete />
+                    </Button>
+                  </div>
+                } subheader={createDate()}/>
+                <CardContent className="note_details">
+                  <h2>{note.title}</h2>
+                  <p>{note.text}</p>
+                </CardContent>
+                <footer className='card_footer'>
+                  <label htmlFor='is_done'>Done?</label>
+                  <Checkbox id='is_done' onChange={handleIsDoneChange} color={note.done ? 'success' : 'default'} checked={note.done}/>
+                </footer>
+              </>
               : <NoteForm handleForm={handleForm} isForm={isForm} setIsForm={setIsForm}/>
           }
-          <footer className='footer'>
-            <label htmlFor='is_done'>Done?</label>
-            <Checkbox id='is_done' onChange={handleIsDoneChange} color={note.done ? 'success' : 'default'} checked={note.done}/>
-          </footer>
+
       </Card>
     </>
   )

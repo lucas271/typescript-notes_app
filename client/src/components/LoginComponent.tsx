@@ -1,7 +1,8 @@
 import React, { FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginUserThunk, UserType } from '../services/features/user/userSlicer'
+import { loginUserThunk, resetErrors, UserType } from '../services/features/user/userSlicer'
 import { AppThunkDispatch } from '../services/store'
+import { CircularProgress } from '@mui/material'
 
 interface Props{
   user: UserType,
@@ -19,6 +20,8 @@ const LoginComponent = ({ user, validation, handleIsLoginChange }: Props) => {
   const dispatch = useDispatch<AppThunkDispatch>()
 
   const handleLoginForm = (e: FormEvent<HTMLFormElement>):void => {
+    setErrors([])
+    resetErrors()
     e.preventDefault()
     const errorsArray = validation(username, password)
     if (errorsArray.length > 0) return setErrors(errorsArray)
@@ -35,7 +38,7 @@ const LoginComponent = ({ user, validation, handleIsLoginChange }: Props) => {
       })}
     </div>}
 
-    {!user?.loading
+    {!user.loading
       ? <>
         <h2>Logar</h2>
 
@@ -64,7 +67,7 @@ const LoginComponent = ({ user, validation, handleIsLoginChange }: Props) => {
           Não tem uma conta? <span onClick={handleIsLoginChange}>registre!</span>
         </p>
     </>
-      : <h2>loading</h2>
+      : <div style={{ margin: 'auto' }}><CircularProgress size={110}/></div>
     }
   </div>
 }
