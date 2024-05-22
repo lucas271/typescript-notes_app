@@ -12,7 +12,7 @@ const config = {
 // async actions
 export const loginUserThunk = createAsyncThunk('user/loginUser', async ({ username, password }: {username: string, password: string}) => {
   try {
-    const { data } = await axios.post('http://localhost:3001/loginUser', { username, password }, config)
+    const { data } = await axios.post('https://vuechatwnodeapi-1t2r.onrender.com/loginUser', { username, password }, config)
     console.log(data)
     if (data.errors) return { errors: data.errors }
     if (data.username && data.notes) {
@@ -26,7 +26,7 @@ export const loginUserThunk = createAsyncThunk('user/loginUser', async ({ userna
 
 export const createUserThunk = createAsyncThunk('user/createUser', async ({ username, password, repeatPassword }: {username: string, password: string, repeatPassword: string}) => {
   try {
-    const { data } = await axios.post('http://localhost:3001/createUser', { username, password, repeatPassword }, config)
+    const { data } = await axios.post('https://vuechatwnodeapi-1t2r.onrender.com/createUser', { username, password, repeatPassword }, config)
     if (data.errors) return { errors: data.errors }
     if (data.username && data.notes) {
       localStorage.setItem('user', JSON.stringify(data))

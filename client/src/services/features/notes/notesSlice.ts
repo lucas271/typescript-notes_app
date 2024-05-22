@@ -13,7 +13,7 @@ export const createNoteThunk = createAsyncThunk('notes/createNote', async ({ tit
   try {
     const user = JSON.parse(String(localStorage.getItem('user')))
     if (user) {
-      const { data } = await axios.post('http://localhost:3001/newNote', { title, text, userId: user._id }, config)
+      const { data } = await axios.post('https://vuechatwnodeapi-1t2r.onrender.com/newNote', { title, text, userId: user._id }, config)
       if (data.errors) return { errors: data.errors }
       if (data.note) {
         localStorage.setItem('user', JSON.stringify({ ...user, notes: [data.note, ...user.notes] }))
@@ -33,7 +33,7 @@ export const editNoteThunk = createAsyncThunk('notes/updateNote', async ({ noteI
     const user = JSON.parse(String(localStorage.getItem('user')))
     console.log(noteId, title, text)
     if (user) {
-      const { data } = await axios.put('http://localhost:3001/updateNote', { title, text, userId: user._id, noteId }, config)
+      const { data } = await axios.put('https://vuechatwnodeapi-1t2r.onrender.com/updateNote', { title, text, userId: user._id, noteId }, config)
       if (data.errors) return { errors: data.errors }
       if (data.note) {
         const notes: Note[] = user.notes
@@ -56,7 +56,7 @@ export const handleDone = createAsyncThunk('/notes/handleDone', async ({ noteId 
   try {
     const user = JSON.parse(String(localStorage.getItem('user')))
     if (user) {
-      const { data } = await axios.put('http://localhost:3001/handleDone', { userId: user._id, noteId }, config)
+      const { data } = await axios.put('https://vuechatwnodeapi-1t2r.onrender.com/handleDone', { userId: user._id, noteId }, config)
       if (data.errors) return { errors: data.errors }
       if (data.note) {
         const notes: Note[] = user.notes
@@ -78,7 +78,7 @@ export const deleteNoteThunk = createAsyncThunk('notes/deleteUser', async ({ not
   try {
     const user = JSON.parse(String(localStorage.getItem('user')))
     if (user) {
-      const { data } = await axios.put('http://localhost:3001/deleteNote', { title, text, userId: user._id, noteId }, config)
+      const { data } = await axios.put('https://vuechatwnodeapi-1t2r.onrender.com/deleteNote', { title, text, userId: user._id, noteId }, config)
       if (data.errors) return { errors: data.errors }
       if (data.note) {
         const notes: Note[] = user.notes

@@ -13,7 +13,6 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   notes: { type: Array, default: [], required: true },
   _id: { type: String, required: true }
-
 }, {
   timestamps: true
 })
